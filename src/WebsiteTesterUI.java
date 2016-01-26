@@ -1,14 +1,15 @@
 /**
  * SE1021 - 032
  * Winter 2016
- * Lab
+ * Lab 6
  * Name: Ian Guswiler
  * Created: 1/21/2016
  */
 
 import edu.msoe.se1021.Lab6.WebsiteTester;
-
-import java.awt.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -16,8 +17,21 @@ import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.logging.Logger;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
+/**
+ * Class built to utilize the WebsiteTester class to connect to a website and download the text contents of the page.
+ *
+ * @author Ian Guswiler
+ * @version 1/26/2016
+ */
 public class WebsiteTesterUI extends JFrame {
     private JButton analyzeButton;
     private JTextField downloadTime;
@@ -32,10 +46,11 @@ public class WebsiteTesterUI extends JFrame {
     private JTextField urlTextBox;
     private WebsiteTester webTester = new WebsiteTester();
 
+
+    /**
+     * Creates labels and formats the components that are then added to the frame.
+     */
     public void buildGUI(){
-
-
-
         JLabel urlLabel = new JLabel("URL", JLabel.LEFT);
         JLabel sizeLabel = new JLabel("Size", JLabel.LEFT);
         JLabel portLabel = new JLabel("Port", JLabel.LEFT);
@@ -136,11 +151,19 @@ public class WebsiteTesterUI extends JFrame {
         add(textFrame,c);
     }
 
+    /**
+     * main program function that creates a new website tester and sets its visibility
+     *
+     * @param args Ignored
+     */
     public static void main(String[] args) {
         WebsiteTesterUI test = new WebsiteTesterUI();
         test.setVisible(true);
     }
 
+    /**
+     * Initializes the program components and creates the anonymous action listeners for buttons and text fields
+     */
     public WebsiteTesterUI(){
         setTitle("Website Downloader and Tester");
         setLayout(new GridBagLayout());
